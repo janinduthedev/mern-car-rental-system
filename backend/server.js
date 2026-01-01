@@ -4,6 +4,7 @@ import cors from "cors";
 import connectDB from "./config/db.js";
 
 import authRoutes from "./routes/authRoutes.js";
+import carRoutes from "./routes/carRoutes.js";
 
 dotenv.config();
 connectDB();
@@ -26,3 +27,4 @@ app.listen(PORT, () => {
 });
 
 app.use("/api/auth", authRoutes);
+app.use("/api/cars", carRoutes);
