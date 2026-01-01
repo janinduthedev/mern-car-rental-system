@@ -79,22 +79,6 @@ const Login = () => {
               />
             </div>
 
-            <div className="flex items-center justify-between text-sm">
-              <label className="flex items-center text-gray-600">
-                <input
-                  type="checkbox"
-                  className="mr-2 rounded border-gray-300 text-blue-600 focus:ring-blue-500"
-                />
-                Remember me
-              </label>
-              <a
-                href="#"
-                className="text-blue-600 hover:text-blue-700 font-medium"
-              >
-                Forgot Password?
-              </a>
-            </div>
-
             <button className="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 rounded-xl shadow-lg shadow-blue-200 transition-all transform active:scale-95">
               Sign In
             </button>
