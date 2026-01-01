@@ -1,9 +1,5 @@
 import express from "express";
-import {
-  createBooking,
-  getMyBookings,
-  getAllBookings,
-} from "../controllers/bookingController.js";
+import { createBooking, getMyBookings, getAllBookings } from "../controllers/bookingController.js";
 import { protect } from "../middleware/authMiddleware.js";
 import { admin } from "../middleware/adminMiddleware.js";
 

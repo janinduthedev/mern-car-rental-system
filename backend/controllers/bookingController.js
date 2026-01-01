@@ -1,25 +1,15 @@
 import Booking from "../models/Booking.js";
 import Car from "../models/Car.js";
 
-// @desc Create booking
-// @route POST /api/bookings
-// @access User
+// Create Booking
 export const createBooking = async (req, res) => {
   const { carId, startDate, endDate } = req.body;
 
   const car = await Car.findById(carId);
+  if (!car) return res.status(404).json({ message: "Car not found" });
+  if (!car.isAvailable) return res.status(400).json({ message: "Car not available" });
 
-  if (!car) {
-    return res.status(404).json({ message: "Car not found" });
-  }
-
-  if (!car.isAvailable) {
-    return res.status(400).json({ message: "Car is not available" });
-  }
-
-  const days =
-    (new Date(endDate) - new Date(startDate)) / (1000 * 60 * 60 * 24) + 1;
-
+  const days = (new Date(endDate) - new Date(startDate)) / (1000 * 60 * 60 * 24) + 1;
   const totalPrice = days * car.pricePerDay;
 
   const booking = await Booking.create({
@@ -36,20 +26,16 @@ export const createBooking = async (req, res) => {
   res.status(201).json(booking);
 };
 
-// @desc Get logged-in user's bookings
-// @route GET /api/bookings/my
-// @access User
+// Get my bookings
 export const getMyBookings = async (req, res) => {
   const bookings = await Booking.find({ user: req.user._id }).populate("car");
   res.json(bookings);
 };
 
-// @desc Get all bookings
-// @route GET /api/bookings
-// @access Admin
+// Get all bookings (Admin)
 export const getAllBookings = async (req, res) => {
   const bookings = await Booking.find({})
-    .populate("user", "name email")
+    .populate("user", "name email role")
     .populate("car", "name brand");
 
   res.json(bookings);

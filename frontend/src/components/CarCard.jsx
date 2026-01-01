@@ -18,18 +18,9 @@ const CarCard = ({ car, onBooked }) => {
     try {
       await api.post(
         "/bookings",
-        {
-          carId: car._id,
-          startDate,
-          endDate,
-        },
-        {
-          headers: {
-            Authorization: `Bearer ${user.token}`,
-          },
-        }
+        { carId: car._id, startDate, endDate },
+        { headers: { Authorization: `Bearer ${user.token}` } }
       );
-
       alert("Car booked successfully!");
       onBooked();
     } catch (error) {

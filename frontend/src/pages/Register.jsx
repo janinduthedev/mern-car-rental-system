@@ -63,7 +63,6 @@ const Register = () => {
           required
         />
 
-        {/* ROLE SELECT */}
         <select
           className="w-full p-2 border mb-3"
           value={role}
@@ -73,7 +72,6 @@ const Register = () => {
           <option value="admin">Admin</option>
         </select>
 
-        {/* ADMIN SECRET */}
         {role === "admin" && (
           <input
             className="w-full p-2 border mb-3"

@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
-import api from "../services/api";
-import { useAuth } from "../context/AuthContext";
 import { useNavigate } from "react-router-dom";
+import { useAuth } from "../context/AuthContext";
+import api from "../services/api";
 
 const MyBookings = () => {
   const { user } = useAuth();
@@ -16,9 +16,7 @@ const MyBookings = () => {
 
     const fetchBookings = async () => {
       const { data } = await api.get("/bookings/my", {
-        headers: {
-          Authorization: `Bearer ${user.token}`,
-        },
+        headers: { Authorization: `Bearer ${user.token}` },
       });
       setBookings(data);
     };
@@ -29,7 +27,6 @@ const MyBookings = () => {
   return (
     <div className="p-6 min-h-screen bg-gray-100">
       <h1 className="text-3xl font-bold mb-6">My Bookings 📅</h1>
-
       {bookings.length === 0 ? (
         <p>No bookings yet</p>
       ) : (

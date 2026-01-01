@@ -13,13 +13,10 @@ const Login = () => {
     e.preventDefault();
 
     try {
-      const { data } = await api.post("/auth/login", {
-        email,
-        password,
-      });
+      const { data } = await api.post("/auth/login", { email, password });
 
       login(data);
-      navigate("/");
+      navigate("/"); // redirect home
     } catch (error) {
       alert(error.response?.data?.message || "Login failed");
     }
