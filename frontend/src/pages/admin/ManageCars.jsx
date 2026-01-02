@@ -118,7 +118,7 @@ const ManageCars = () => {
 
       <div className="max-w-7xl mx-auto px-8 py-12">
         {/* Minimalist Entry Form */}
-        <div className="bg-white rounded-[2rem] p-10 shadow-sm border border-slate-100 mb-16 max-w-4xl mx-auto">
+        <div className="bg-white rounded-4xl p-10 shadow-sm border border-slate-100 mb-16 max-w-4xl mx-auto">
           <header className="mb-10 text-center">
             <h2 className="text-2xl font-semibold tracking-tight text-slate-800">
               {editingId ? "Edit Vehicle Info" : "Register New Asset"}
@@ -258,7 +258,7 @@ const ManageCars = () => {
               key={car._id}
               className="group bg-white rounded-[2.5rem] p-4 shadow-sm hover:shadow-xl hover:shadow-slate-200/50 transition-all duration-500 border border-slate-50"
             >
-              <div className="aspect-[4/3] rounded-[2rem] overflow-hidden mb-6 relative">
+              <div className="aspect-4/3 rounded-4xl overflow-hidden mb-6 relative">
                 <img
                   src={car.image}
                   className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
