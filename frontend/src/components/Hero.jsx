@@ -21,7 +21,7 @@ const Hero = () => {
         </div>
 
         {/* Hero Image / Card */}
-        <div className="relative group">
+        <div className="relative group -mt-18">
           <div className="absolute inset-0 bg-gradient-to-tr from-blue-100 to-transparent rounded-[3rem] -rotate-3 transition-transform group-hover:rotate-0 duration-500" />
           <img
             src="https://images.unsplash.com/photo-1553260188-75a8d6205b6c?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"

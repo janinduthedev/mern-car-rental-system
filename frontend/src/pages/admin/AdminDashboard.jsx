@@ -82,29 +82,6 @@ const AdminDashboard = () => {
             </div>
           </Link>
         </div>
-
-        {/* Quick Stats Placeholder (Optional addition for modern look) */}
-        <div className="mt-12 grid grid-cols-1 sm:grid-cols-3 gap-6">
-          {[
-            { label: "Total Fleet", value: "24 Cars", color: "text-blue-600" },
-            {
-              label: "Active Bookings",
-              value: "12 Today",
-              color: "text-green-600",
-            },
-            { label: "Pending Reviews", value: "5", color: "text-amber-600" },
-          ].map((stat, i) => (
-            <div
-              key={i}
-              className="bg-white border border-gray-100 p-6 rounded-2xl shadow-sm"
-            >
-              <p className="text-gray-500 text-sm font-medium">{stat.label}</p>
-              <p className={`text-2xl font-bold mt-1 ${stat.color}`}>
-                {stat.value}
-              </p>
-            </div>
-          ))}
-        </div>
       </main>
     </div>
   );

@@ -31,30 +31,34 @@ const Home = () => {
           <div className="flex justify-between h-16 items-center">
             {/* Logo */}
             <div className="flex items-center">
-              <span className="text-2xl font-black text-blue-600 tracking-tighter">
+              <span className="text-xl md:text-2xl font-black text-blue-600 tracking-tighter">
                 DRIVE<span className="text-slate-800">NEST</span>
               </span>
             </div>
 
             {/* Actions */}
-            <div className="flex items-center gap-4">
+            <div className="flex items-center gap-2 md:gap-4">
               {user ? (
                 <>
                   {user.role === "admin" && (
                     <Link
                       to="/admin"
-                      className="hidden md:block text-sm font-semibold text-amber-600 hover:bg-amber-50 px-4 py-2 rounded-lg transition-colors"
+                      /* Removed 'hidden md:block' and adjusted padding/text for mobile */
+                      className="text-[10px] md:text-sm font-bold uppercase tracking-tight md:tracking-normal text-amber-600 hover:bg-amber-50 px-2 md:px-4 py-2 rounded-lg transition-colors border border-amber-100 md:border-transparent"
                     >
-                      Admin Dashboard
+                      Admin
                     </Link>
                   )}
-                  <div className="flex items-center gap-3 pl-4 border-l">
-                    <span className="hidden sm:block text-sm font-medium text-gray-700">
-                      Hi, {user.name || "User"}
+
+                  <div className="flex items-center gap-2 md:gap-3 pl-2 md:pl-4 border-l border-gray-200">
+                    {/* Removed 'hidden sm:block' - showing on all screens */}
+                    <span className="text-[11px] md:text-sm font-medium text-gray-700 max-w-[80px] md:max-w-none truncate">
+                      Hi, {user.name?.split(" ")[0] || "User"}
                     </span>
+
                     <button
                       onClick={logout}
-                      className="bg-slate-800 text-white text-sm px-4 py-2 rounded-lg font-semibold hover:bg-red-600 transition-all shadow-md active:scale-95"
+                      className="bg-slate-800 text-white text-[10px] md:text-sm px-3 md:px-4 py-1.5 md:py-2 rounded-lg font-semibold hover:bg-red-600 transition-all active:scale-95"
                     >
                       Logout
                     </button>
@@ -63,7 +67,7 @@ const Home = () => {
               ) : (
                 <Link
                   to="/login"
-                  className="bg-blue-600 text-white text-sm px-6 py-2 rounded-lg font-bold hover:bg-blue-700 transition-all shadow-lg shadow-blue-200"
+                  className="bg-blue-600 text-white text-xs md:text-sm px-4 md:px-6 py-2 rounded-lg font-bold hover:bg-blue-700 transition-all shadow-lg shadow-blue-200"
                 >
                   Sign In
                 </Link>
@@ -76,7 +80,7 @@ const Home = () => {
       <Hero />
 
       {/* --- Main Content --- */}
-      <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-20">
+      <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-20 mt-10">
         <div className="flex items-center justify-between mb-8">
           <div>
             <h2 className="text-2xl font-bold text-gray-800">
